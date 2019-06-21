@@ -2,7 +2,7 @@ import random
 import torch
 import numpy as np
 from torch.autograd import Variable
-from SupportSetManager import SupportSetManager
+from few_shot_code.SupportSetManager import SupportSetManager
 
 class SupportSetManagerLargeHybrid(SupportSetManager):
     FIXED_FIRST = 0

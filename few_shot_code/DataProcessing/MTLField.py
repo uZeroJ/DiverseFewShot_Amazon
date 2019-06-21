@@ -70,7 +70,7 @@ class MTLField(Field):
         for arg in dataset_list:
             if isinstance(arg, Dataset):
                 sources += [getattr(arg, name) for name, field in
-                            arg.fields.items() if field is self]
+                            list(arg.fields.items()) if field is self]
             else:
                 sources.append(arg)
         for data in sources:

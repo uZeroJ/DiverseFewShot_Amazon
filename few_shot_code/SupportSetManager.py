@@ -12,7 +12,7 @@ class SupportSetManager(object):
         self.TEXT = TEXT
         self.sample_per_class = sample_per_class
 
-        print 'Picking up prototypes'
+        print('Picking up prototypes')
         self.prototype_text_list = []
 
         for taskid, (TEXT, LABEL, train, dev, test) in enumerate(datasets):
@@ -37,7 +37,7 @@ class SupportSetManager(object):
                 if self.sample_per_class >= 1 and self.sample_per_class < len(prototype_text[lab_id]):
                     prototype_text[lab_id] = prototype_text[lab_id][:self.sample_per_class]
 
-            print 'Task %d: picked up %d prototypes'%(taskid, self.sample_per_class)
+            print('Task %d: picked up %d prototypes'%(taskid, self.sample_per_class))
             self.prototype_text_list.append(prototype_text)
 
     def select_support_set(self, taskid, policy):
@@ -129,7 +129,7 @@ class SupportSetManager(object):
                     self.TEXT.pad(x for x in prototype_text[lab_id]),
                     device=self.config.gpu, train=True)
             else:
-                top_ind = range(len(prototype_text[lab_id]))
+                top_ind = list(range(len(prototype_text[lab_id])))
                 random.shuffle(top_ind)
                 top_ind = top_ind[:sample_per_class]
                 prototype_text_sample = [prototype_text[lab_id][i] for i in top_ind]

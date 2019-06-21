@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 # import data
-from MatchingCnn import MatchingCnn, MatchPair
+from few_shot_code.MatchingCnn import MatchingCnn, MatchPair
 from torch.autograd import Variable
 
 class MatchPairStd(MatchPair):

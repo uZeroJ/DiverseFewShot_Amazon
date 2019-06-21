@@ -3,13 +3,13 @@ import torch.nn as nn
 import torch.optim as OPT
 
 # import data
-from CNNModel import CnnEncoder
+from few_shot_code.CNNModel import CnnEncoder
 # from RnnModel import Encoder as RnnEncoder
 from torch.autograd import Variable
 
 from torchtext import data
-import UtilFunctions
-from UtilLayer import *
+import few_shot_code.UtilFunctions
+from few_shot_code.UtilLayer import *
 import sys
 from copy import deepcopy
 

@@ -1,6 +1,6 @@
 import sys
 import torch
-import MatchingCnn
+from few_shot_code import MatchingCnn
 
 def get_length_avg_std(dataset):
     len_vec = [len(x.text) for x in dataset.examples]
@@ -16,7 +16,7 @@ def get_maxlen_dataset(dataset):
 def padding_dataset(dataset, maxlen=None):
     if not maxlen:
         maxlen = get_maxlen_dataset(dataset)
-    print 'maxlen:', maxlen
+    print('maxlen:', maxlen)
     for example in dataset.examples:
         if len(example.text) > maxlen:
             example.text = example.text[:maxlen]

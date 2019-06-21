@@ -1,9 +1,10 @@
 import os
 
 import torchtext.data as data
-from torchtext.data import ZipDataset
+# from torchtext.data import ZipDataset
+from torchtext.data import TabularDataset
 
-class NlcDatasetSingleFile(ZipDataset):
+class NlcDatasetSingleFile(TabularDataset):
 
     @staticmethod
     def sort_key(ex):
@@ -32,7 +33,7 @@ class NlcDatasetSingleFile(ZipDataset):
             for line in f_data:
                 pair = line.strip().split('\t')
                 if len(pair) != 2:
-                    print 'ignore case in %s'%path, pair
+                    print('ignore case in %s'%path, pair)
                     continue
                 label = pair[1]
                 line_data = pair[0]
@@ -40,6 +41,7 @@ class NlcDatasetSingleFile(ZipDataset):
 
         super(NlcDatasetSingleFile, self).__init__(examples, fields, **kwargs)
 
+    # TODO: fix
     @classmethod
     def splits(cls, text_field, label_field, path='.',
                train='train.txt', validation='dev.txt', test='test.txt', **kwargs):
