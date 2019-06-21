@@ -1,9 +1,9 @@
 import os
 
 import torchtext.data as data
-from torchtext.data import ZipDataset
+from torchtext.data import TabularDataset
 
-class NlcDatasetMultiLabel(ZipDataset):
+class NlcDatasetMultiLabel(TabularDataset):
 
     @staticmethod
     def sort_key(ex):
